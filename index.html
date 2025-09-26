@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web2APK Builder | Khafa XDi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="sebuah web konvert web to apk free" />
+  <meta name="google-site-verification" content="mpZXVrORh_EsUHsFjdu0GumjK0Utz1y-Q5KM7buBxAY" />
+  <meta name="keywords" content="website, toapp, konvert, web2app, konvertWebToapk, konverting, konvert, free" />
+  <meta name="author" content="Dlii" />
+  <meta property="og:title" content="Web2App Builder" />
+  <meta property="og:description" content="web konvert link to apk" />
+  <meta property="og:image" content="https://a.top4top.io/p_3524r3n0t1.jpg" />
+  <meta property="og:url" content="www.web2app.zone.id" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="shortcut icon" href="https://a.top4top.io/p_3524r3n0t1.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Ganti path jika styles.css berada di folder lain -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Efek bintang -->
+  <div class="stars" id="stars"></div>
+
+  <div class="card">
+    <button class="settings-btn" id="settingsBtn">
+      <i class="fas fa-cog"></i>
+    </button>
+
+    <div class="profile-section">
+      <img src="https://a.top4top.io/p_3524r3n0t1.jpg" alt="Profile Picture" class="profile-img" id="profileImg" />
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-globe"></i></div>
+        <div class="logo-text">Web2APK Builder</div>
+      </div>
+    </div>
+
+    <form id="builderForm" autocomplete="off">
+      <div class="form-group">
+        <label class="form-label" for="url">URL Website</label>
+        <div style="position:relative">
+          <i class="fas fa-link input-icon"></i>
+          <input type="url" id="url" class="form-control" placeholder="https://example.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="appName">Nama Aplikasi</label>
+        <div style="position:relative">
+          <i class="fas fa-mobile-alt input-icon"></i>
+          <input type="text" id="appName" class="form-control" placeholder="MyApp" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Kamu</label>
+        <div style="position:relative">
+          <i class="fas fa-envelope input-icon"></i>
+          <input type="email" id="email" class="form-control" placeholder="you@mail.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="iconFile">Ikon Aplikasi</label>
+        <input type="file" id="iconFile" class="form-control" accept="image/*" required />
+        <div id="uploadStatus" class="upload-status hidden"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn">
+        <i class="fas fa-hammer"></i> Build APK
+      </button>
+    </form>
+
+    <div class="contact-section">
+      <a href="https://t.me/UCOK109" target="_blank" class="contact-btn">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://t.me/TestiKhafa" class="contact-btn">
+        <i class="fas fa-Channel"></i> Channel
+      </a>
+    </div>
+
+    <div class="donate-section">
+      <a href="https://saweria.co/khafastore" target="_blank" class="donate-btn">
+        <i class="fas fa-heart"></i> Donasi
+      </a>
+    </div>
+
+    <div id="progress" class="progress-box hidden">
+      <p><i class="fas fa-spinner fa-spin"></i> <span id="progText">Mengunggah ikon…</span></p>
+      <div class="progress-bar"><div id="progBar"></div></div>
+    </div>
+
+    <div id="result" class="hidden">
+      <p style="margin-top:1.5rem;font-size:.95rem;color:var(--light)">
+        <i class="fas fa-check-circle" style="color:#22c55e"></i> APK berhasil dibuat!
+      </p>
+      <a id="dlApk" class="btn btn-primary" href="#" download>
+        <i class="fas fa-download"></i> Download APK
+      </a>
+      <details style="margin-top:1rem;font-size:.8rem;color:var(--light)">
+        <summary>Info Lainya</summary>
+        <pre id="keyInfo" style="background:rgba(30,41,59,0.7);padding:.7rem;border-radius:.4rem;overflow:auto;color:var(--light)"></pre>
+      </details>
+    </div>
+
+    <div class="alert hidden" id="errorAlert">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="errorMsg"></span>
+    </div>
+
+    <div class="footer">
+      Powered by <a href="https://api.fikmydomainsz.xyz" target="_blank">Khafa XD</a>
+    </div>
+  </div>
+
+  <!-- Modal Settings -->
+  <div class="settings-modal" id="settingsModal">
+    <div class="settings-content">
+      <button class="close-btn" id="closeSettings">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3>Ubah Foto Profil</h3>
+      <div class="form-group">
+        <label class="form-label" for="profileUpload">Unggah Foto Baru</label>
+        <input type="file" id="profileUpload" class="form-control" accept="image/*" />
+      </div>
+      <button class="btn btn-secondary" id="saveProfile">
+        <i class="fas fa-save"></i> Simpan Perubahan
+      </button>
+    </div>
+  </div>
+
+  <!-- Panggil script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
